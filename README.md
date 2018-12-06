@@ -23,8 +23,8 @@ by a **random forest** for improved performance; **grid-search cross validation*
 whenever time and computing resources permit. After building each model, feature importances
 are explored and interpreted accordingly.
 
-Note that stop words are not filtered out, because the available lists contain words that
-may encode sentiments.
+Note that stop words are not filtered out, because they contain words that may encode
+sentiments, e.g. don't can't ...
 
 ### Recommendation System
 `Build-Recommender.ipynb`, `Recommender.py`
@@ -43,5 +43,3 @@ simple variable name change to use the other!
 
 ### Clustering of Restaurants (Pending)
 `Clustering.ipynb`
-
-## File Directory
