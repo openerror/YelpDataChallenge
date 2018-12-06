@@ -6,7 +6,7 @@ releases several years worth of data from its operations. The data set includes 
 
 This project focuses on restaurants in Las Vegas, and provides
 1. a sentiment analysis model (positive *v.s.* negative reviews)
-2. a recommendation system for restaurants 
+2. a recommendation system for restaurants
 3. a clustering study of restaurants with perfect/disastrous ratings (**pending**)
 
 
@@ -27,11 +27,21 @@ Note that stop words are not filtered out, because the available lists contain w
 may encode sentiments.
 
 ### Recommendation System
-`Recommender.ipynb`
+`Build-Recommender.ipynb`, `Recommender.py`
+Two approaches --- **item-item collaborative** filtering and **Non-negative Matrix
+Factorization** [(NMF)](http://www.albertauyeung.com/post/python-matrix-factorization/) are
+explored. The top recommendations for a given user are compared with the restaurants he/she
+reviewed, in order to ensure that the recommendations make sense. To evaluate more rigorously
+the performance of each approach, I will have to create a hold-out test set (pending).
 
-For the recommendation system ...
+One key step to building a recommendation system is to form a utility matrix, which
+records users' preferences for each item (restaurant). This project has demonstrated two
+approaches at quantitatively encoding "preference": one using the star rating attached
+to each review, and the other weighs the star rating according to the number of 'useful' votes
+each review receives. For simplicity, we have only utilized the former; it only takes a
+simple variable name change to use the other!
 
-### Clustering of Restaurants
+### Clustering of Restaurants (Pending)
 `Clustering.ipynb`
 
 ## File Directory
