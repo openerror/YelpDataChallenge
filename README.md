@@ -1,8 +1,10 @@
 # Sentiment Analysis & Restaurant Recommendation System
 ## Overview
 
-This project utilizes **real-world data** from the 12th [Yelp Data Challenge](https://www.yelp.com/dataset/challenge), where Yelp
-releases several years worth of data from its operations. The data set includes reviews of businesses by customers, the photos taken, check-in instances, and detailed attributes of each business.
+This project utilizes **real-world data** from the 12th [Yelp Data Challenge](https://www.yelp.com/dataset/challenge); Yelp is a review platform for local
+businesses [across the world](https://www.yelp.com/locations). The data set includes reviews
+of businesses by customers, the photos taken, check-in instances, and detailed attributes 
+of each business.
 
 This project focuses on restaurants in Las Vegas, and provides
 1. a sentiment analysis model (positive *v.s.* negative reviews)
