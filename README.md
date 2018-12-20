@@ -9,7 +9,7 @@ of each business.
 This project focuses on restaurants in Las Vegas, and provides
 1. a sentiment analysis model (positive *v.s.* negative reviews)
 2. a recommendation system for restaurants
-3. a clustering study of restaurants with perfect/disastrous ratings (**pending**)
+3. a clustering study of restaurants with perfect/disastrous ratings 
 
 
 To try out this repository, download all the code, and place the Yelp data into the
@@ -43,5 +43,9 @@ to each review, and the other weighs the star rating according to the number of 
 each review receives. For simplicity, we have only utilized the former; it only takes a
 simple variable name change to use the other!
 
-### Clustering of Restaurants (Pending)
+### Clustering of Restaurants
 `Clustering.ipynb`
+
+Performed K-means clustering of restaurant reviews (encoded as Tf-idf vectors), explored recurring themes expressed by restaurant goers. Tuned clustering output using the elbow method.
+
+Tried clustering all reviews simultaneously, and also only the ones with the lowest star rating (one). Attempted to identify what makes popular restaurants popular, and what constitutes restaurants that receive the worst ratings.
