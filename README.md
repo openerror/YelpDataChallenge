@@ -40,8 +40,8 @@ are explored and interpreted accordingly.
 Note that some stop words are not filtered out, because they contain words that may encode
 sentiments, e.g. don't can't ...
 
-On the other hand, one may criticize my models for achieving just 80-85% accuracy, but here are some empirical
-findings to put that into perspective. When classifying sentiments in IMDB
+On the other hand, one may criticize my models for achieving just 80-85% accuracy, but here are some [empirical
+findings](https://blog.paralleldots.com/data-science/breakthrough-research-papers-and-models-for-sentiment-analysis/) to put that into perspective. When classifying sentiments in IMDB
 benchmark data, which is of similar size to our present data set, state-of-the-art deep learning models
 were required to achieve an accuracy of 90+%. It may not always be worthwhile to implement complex models
 that are difficult to interpret, just to chase after a 10% increase in accuracy.
