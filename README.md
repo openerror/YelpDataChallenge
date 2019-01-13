@@ -1,32 +1,50 @@
 # Sentiment Analysis & Restaurant Recommendation System
-## Overview
+## Introduction
 
-This project utilizes **real-world data** from the 12th [Yelp Data Challenge](https://www.yelp.com/dataset/challenge); Yelp is a review platform for local
-businesses [across the world](https://www.yelp.com/locations). The data set includes reviews
-of businesses by customers, the photos taken, check-in instances, and detailed attributes 
-of each business.
+Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/)
 
-This project focuses on restaurants in Las Vegas, and provides
+Utilizing [**real-world data**]((https://www.yelp.com/dataset/challenge)) released by Yelp, a review platform for local
+businesses [across the world](https://www.yelp.com/locations), this project has built for
+*restaurants in Las Vegas*
 1. a sentiment analysis model (positive *v.s.* negative reviews)
-2. a recommendation system for restaurants
-3. a clustering study of restaurants with perfect/disastrous ratings 
+2. a recommendation system for unvisited/unrated restaurants
+3. a clustering study of restaurants with perfect/disastrous ratings
 
-
-To try out this repository, download all the code, and place the Yelp data into the
+To try out this repository, download all the code, and then place the Yelp data into the
 directory `yelp_dataset`. Then run `Preprocessing.ipynb` first to extract
 the necessary data from the enormous raw set.
+
+### Summary of Results:
+1. Using (**logistic regression, random forest**), achieved **accuracies of (84%, 80%)** on
+test set. Since the labels are not too imbalanced, accuracy is an appropriate metric. In case
+there are questions about "poor performance", see discussion in next section.
+
+2. Built a recommendation system based on explicit restaurant ratings; item-item collaborative
+filtering and [Non-Negative Matrix Factorization (NMF)]((http://www.albertauyeung.com/post/python-matrix-factorization/)) attempted. For NMF, RMSE of 1.2 achieved on masked ratings; in comparison, the winner of the famous
+Netflix competition achieved a RMSE of 0.9.
+
+3. Confirmed empirically some common-sense assumptions: there is a casual relationship between
+hygiene, service quality, and customer retention
+
+Please see below for details on project methodology and the purpose of each file.
 
 ## File Directory & Summary of Techniques
 ### Sentiment Analysis
 `NLP.ipynb`
 Each review is transformed from raw text to "term frequency-inverse document frequency"
 (**Tf-idf**) vectors. A **logistic regression** classifier is built as the baseline, followed
-by a **random forest** for improved performance; **grid-search cross validation** is performed
+by a **random forest** for hopefully improved performance; **grid-search cross validation** is performed
 whenever time and computing resources permit. After building each model, feature importances
 are explored and interpreted accordingly.
 
-Note that stop words are not filtered out, because they contain words that may encode
+Note that some stop words are not filtered out, because they contain words that may encode
 sentiments, e.g. don't can't ...
+
+On the other hand, one may criticize my models for achieving just 80-85% accuracy, but here are some empirical
+findings to put that into perspective. When classifying sentiments in IMDB
+benchmark data, which is of similar size to our present data set, state-of-the-art deep learning models
+were required to achieve an accuracy of 90+%. It may not always be worthwhile to implement complex models
+that are difficult to interpret, just to chase after a 10% increase in accuracy.
 
 ### Recommendation System
 `Build-Recommender.ipynb`, `Recommender.py`
