@@ -20,7 +20,7 @@ test set. Since the labels are not too imbalanced, accuracy is an appropriate me
 there are questions about "poor performance", see discussion in next section.
 
 2. Built a recommendation system based on explicit restaurant ratings; item-item collaborative
-filtering and [Non-Negative Matrix Factorization (NMF)]((http://www.albertauyeung.com/post/python-matrix-factorization/)) attempted. For NMF, RMSE of 1.2 achieved on masked ratings; in comparison, the winner of the famous
+filtering and [Non-Negative Matrix Factorization (NMF)]((http://www.albertauyeung.com/post/python-matrix-factorization/)) attempted. For NMF, **RMSE of 1.2** achieved on masked ratings; in comparison, the winner of the famous
 Netflix competition achieved a RMSE of 0.9.
 
 3. Confirmed empirically some common-sense assumptions: there is a casual relationship between
