@@ -58,8 +58,9 @@ One key step to building a recommendation system is to form a utility matrix, wh
 records users' preferences for each item (restaurant). This project has demonstrated two
 approaches at quantitatively encoding "preference": one using the star rating attached
 to each review, and the other weighs the star rating according to the number of 'useful' votes
-each review receives. For simplicity, we have only utilized the former; it only takes a
-simple variable name change to use the other!
+each review receives. For simplicity, we have only utilized the former, but it only takes a
+simple variable name change to use the other! In a production system, use A/B testing
+to decide between the two.
 
 ### Clustering of Restaurants
 `Clustering.ipynb`
