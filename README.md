@@ -46,6 +46,8 @@ benchmark data, which is of similar size to our present data set, state-of-the-a
 were required to achieve an accuracy of 90+%. It may not always be worthwhile to implement complex models
 that are difficult to interpret, just to chase after a 10% increase in accuracy.
 
+Machine learning models are provided by [scikit-learn](http://scikit-learn.org/).
+
 ### Recommendation System
 `Build-Recommender.ipynb`, `Recommender.py`
 Two approaches --- **item-item collaborative** filtering and **Non-negative Matrix
@@ -62,9 +64,14 @@ each review receives. For simplicity, we have only utilized the former, but it o
 simple variable name change to use the other! In a production system, use A/B testing
 to decide between the two.
 
+Item-item collaborative filtering is implemented using custom code, while NMF functionality
+is provided by [scikit-surprise](http://surpriselib.com/).
+
 ### Clustering of Restaurants
 `Clustering.ipynb`
 
 Performed K-means clustering of restaurant reviews (encoded as Tf-idf vectors), explored recurring themes expressed by restaurant goers. Tuned clustering output using the elbow method.
 
 Tried clustering all reviews simultaneously, and also only the ones with the lowest star rating (one). Attempted to identify what makes popular restaurants popular, and what constitutes restaurants that receive the worst ratings.
+
+Clustering models are provided by [scikit-learn](http://scikit-learn.org/).
