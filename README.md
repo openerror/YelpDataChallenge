@@ -3,7 +3,7 @@
 
 Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/)
 
-Utilizing [**real-world data**]((https://www.yelp.com/dataset/challenge)) released by Yelp, a review platform for local
+Utilizing [real-world data](https://www.yelp.com/dataset/challenge) released by Yelp, a review platform for local
 businesses [across the world](https://www.yelp.com/locations), this project has built for
 *restaurants in Las Vegas*
 1. a sentiment analysis model (positive *v.s.* negative reviews)
