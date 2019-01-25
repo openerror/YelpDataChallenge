@@ -1,7 +1,8 @@
 # Sentiment Analysis & Restaurant Recommendation System
 ## Introduction
 
-Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/)
+Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/).
+After serious searching I am glad to utilize scikit-surprise --- it may be the only single-machine, Python recommendation system library that accounts for [user/item biases](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF) in (explicit) ratings.
 
 Utilizing [real-world data](https://www.yelp.com/dataset/challenge) released by Yelp, a review platform for local
 businesses [across the world](https://www.yelp.com/locations), this project has built for
@@ -70,7 +71,10 @@ simple variable name change to use the other! In a production system, use A/B te
 to decide between the two.
 
 Item-item collaborative filtering is implemented using custom code, while NMF functionality
-is provided by [scikit-surprise](http://surpriselib.com/).
+is provided by [scikit-surprise](http://surpriselib.com/). For the NMF recommendation system,
+I have utilized scikit-surprise's built-in functionality for testing prediction performance:
+by masking some non-zero entries in the utility matrix and let the trained model "predict" them,
+we can calculate a RMSE which serves as a measure for the quality of recommendations.
 
 ### Clustering of Restaurants
 #### `Clustering.ipynb`
