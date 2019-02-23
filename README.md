@@ -2,7 +2,7 @@
 ## Introduction
 
 Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/).
-After serious searching I am glad to utilize scikit-surprise --- it may be the only single-machine, Python recommendation system library that accounts for [user/item biases](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF) in (explicit) ratings.
+After serious searching I am glad to have come upon scikit-surprise --- it may be the only single-machine, Python recommendation system library that accounts for [user/item biases](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF) in (explicit) ratings.
 
 Utilizing [real-world data](https://www.yelp.com/dataset/challenge) released by Yelp, a review platform for local
 businesses [across the world](https://www.yelp.com/locations), this project has built for
@@ -72,15 +72,13 @@ to decide between the two.
 
 Item-item collaborative filtering is implemented using custom code, while NMF functionality
 is provided by [scikit-surprise](http://surpriselib.com/). For the NMF recommendation system,
-I have utilized scikit-surprise's built-in functionality for testing prediction performance:
+I have utilized scikit-surprise's built-in functionality for measuring performance:
 by masking some non-zero entries in the utility matrix and let the trained model "predict" them,
 we can calculate a RMSE which serves as a measure for the quality of recommendations.
 
 ### Clustering of Restaurants
 #### `Clustering.ipynb`
 
-Performed K-means clustering of restaurant reviews (encoded as Tf-idf vectors), explored recurring themes expressed by restaurant goers. Tuned clustering output using the elbow method.
-
-Tried clustering all reviews simultaneously, and also only the ones with the lowest star rating (one). Attempted to identify what makes popular restaurants popular, and what constitutes restaurants that receive the worst ratings.
+Performed K-means clustering of restaurant reviews (encoded as Tf-idf vectors), explored recurring themes expressed by restaurant goers. Tuned clustering output using the elbow method. Concluded which cuisines are popular among Las Vegas diners as a whole in the past two years, and the aspects of a dining experience they care about. 
 
 Clustering models are provided by [scikit-learn](http://scikit-learn.org/).
