@@ -1,7 +1,7 @@
 # Sentiment Analysis & Restaurant Recommendation System
 ## Introduction
 
-Stack: Python 3.7, Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/).
+Stack: Python 3.7 - 3., Pandas, Matplotlib, [scikit-learn](http://scikit-learn.org/), [scikit-surprise](http://surpriselib.com/).
 After serious searching I am glad to have come upon scikit-surprise --- it may be the only single-machine, Python recommendation system library that accounts for [user/item biases](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF) in (explicit) ratings.
 
 Utilizing [real-world data](https://www.yelp.com/dataset/challenge) released by Yelp, a review platform for local
@@ -16,7 +16,7 @@ directory `yelp_dataset`. Then run `Preprocessing.ipynb` first to extract
 the necessary data from the enormous raw set.
 
 ### Summary of Results:
-1. Using (**logistic regression, naive Bayes, random forest**) classifiers, achieved **(84.7%, 81.8%, 81.2%) accuracies** on
+1. Using (**logistic regression** and **naive Bayes**) classifiers, achieved **(84.7%, 81.8%) accuracies** on
 test set. Since the labels are not too imbalanced, accuracy is an appropriate metric. In case
 there are questions about "poor performance", see discussion in next section.
 
@@ -31,7 +31,7 @@ Please see below for details on project methodology and the purpose of each file
 
 ## File Directory & Summary of Techniques
 ### Search Engine for Similar Reviews + Sentiment Analysis
-####  `NLP.ipynb`
+####  `SentimentAnalysis_Search.ipynb`
 Each review is transformed from raw text to "term frequency-inverse document frequency"
 (**Tf-idf**) vectors. Note that some stop words are not filtered out, because they contain words that may encode
 sentiments, e.g. don't can't ...
@@ -43,10 +43,9 @@ the lengths of both the query and the corpus documents. Using this search engine
 can quickly find, e.g. reviews containing the same criticisms.
 
 Then, **logistic regression** and **naive Bayes** classifiers were
-built as 80%-accuracy baselines, followed by **random forest** for hopefully even better performance.
-Unfortunately, after a **randomized hyperparameter search** + **3-fold cross validation**,
-random forest still overfitted and couldn't beat naive Bayes. We also attempted
-dimension reduction via **principal component analysis (PCA)**, hoping to prevent overfitting ... but to no avail.
+built as 80%-accuracy baselines. I hoped to follow up with a random forest model, but
+unfortunately my laptop couldn't complete **randomized hyperparameter search** + **3-fold cross validation**
+after hours.
 
 To put the classification accuracies into perspective, here are some [empirical
 findings](https://blog.paralleldots.com/data-science/breakthrough-research-papers-and-models-for-sentiment-analysis/). When classifying sentiments in IMDB benchmark data, which is of similar size to our present data set, state-of-the-art deep learning models were required to achieve an accuracy of 90+%. All in all, 80+% accuracy is already quite alright;
@@ -76,9 +75,11 @@ I have utilized scikit-surprise's built-in functionality for measuring performan
 by masking some non-zero entries in the utility matrix and let the trained model "predict" them,
 we can calculate a RMSE which serves as a measure for the quality of recommendations.
 
-### Clustering of Restaurants
-#### `Clustering.ipynb`
+### Discovering Review
+#### `TopicDiscovery.ipynb`
+Applied bag-of-word techniques to quickly extract and visualize diners' thoughts on two
+famous restaurant franchises: McDonald's and Gordon Ramsay Hell's Kitchen. Interesting how
+much one can accomplish without machine learning, but acquiring `word2vec` embeddings of
+reviews and clustering the resulted vectors should be an interesting extension.
 
-Performed K-means clustering of restaurant reviews (encoded as Tf-idf vectors), explored recurring themes expressed by restaurant goers. Tuned clustering output using the elbow method. Concluded which cuisines are popular among Las Vegas diners as a whole in the past two years, and the aspects of a dining experience they care about. 
-
-Clustering models are provided by [scikit-learn](http://scikit-learn.org/).
+![gordon ramsay hell kitchen review trends](gordon.png)
