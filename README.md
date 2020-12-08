@@ -9,14 +9,14 @@ businesses [across the world](https://www.yelp.com/locations), this project has 
 *restaurants in Las Vegas*
 1. a sentiment analysis model (positive *v.s.* negative reviews)
 2. a recommendation system for unvisited/unrated restaurants
-3. a clustering study of restaurants with perfect/disastrous ratings
+3. a NLP-enabled case study of two restaurants with perfect/disastrous ratings
 
 To try out this repository, download all the code, and then place the Yelp data into the
 directory `yelp_dataset`. Then run `Preprocessing.ipynb` first to extract
 the necessary data from the enormous raw set.
 
 ### Summary of Results:
-1. Using (**logistic regression** and **naive Bayes**) classifiers, achieved **(84.7%, 81.8%) accuracies** on
+1. Using (**logistic regression** and **naive Bayes**) classifiers, achieved **(84%, 82%) accuracies** on
 test set. Since the labels are not too imbalanced, accuracy is an appropriate metric. In case
 there are questions about "poor performance", see discussion in next section.
 
@@ -54,7 +54,7 @@ it may not be worthwhile to implement more complicated models that are difficult
 Machine learning models are provided by [scikit-learn](http://scikit-learn.org/).
 
 ### Recommendation System
-#### `Build-Recommender.ipynb`, `Recommender.py`
+#### `Build-Recommender.ipynb`, `src/Recommender.py`
 Two approaches --- **item-item collaborative** filtering and **Non-negative Matrix
 Factorization** [(NMF)](http://www.albertauyeung.com/post/python-matrix-factorization/) are
 explored. The top recommendations for a given user are compared with the restaurants he/she
@@ -75,7 +75,7 @@ I have utilized scikit-surprise's built-in functionality for measuring performan
 by masking some non-zero entries in the utility matrix and let the trained model "predict" them,
 we can calculate a RMSE which serves as a measure for the quality of recommendations.
 
-### Discovering Review
+### Discovering Reviews
 #### `TopicDiscovery.ipynb`
 Applied bag-of-word techniques to quickly extract and visualize diners' thoughts on two
 famous restaurant franchises: McDonald's and Gordon Ramsay Hell's Kitchen. Interesting how
