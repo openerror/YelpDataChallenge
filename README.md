@@ -1,6 +1,6 @@
 # Insights from Restaurant Reviews
 ## Overview of Repository
-Using real-world data released by [Yelp]((https://www.yelp.com/dataset/challenge)), this project has accomplished the following for
+Using real-world data released by [Yelp](https://www.yelp.com/dataset/challenge), this project has accomplished the following for
 *restaurants in Las Vegas*.
 
 1. Loading JSON files efficiently by chunking and early down-filtering. Published methodology on [Towards Data Science](https://towardsdatascience.com/load-yelp-reviews-or-other-huge-json-files-with-ease-ad804c2f1537).
